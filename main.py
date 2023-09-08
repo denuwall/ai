@@ -1,5 +1,5 @@
 import streamlit as st
-from docx import Document
+#from docx import Document
 
 # Функция для анализа текста (заглушка)
 def analyze_text_with_nn(text):
@@ -12,7 +12,7 @@ def analyze_text_with_nn(text):
 def upload_file():
     uploaded_file = st.file_uploader("Загрузите файл Word (.docx)", type=["docx"])
     if uploaded_file is not None:
-        doc = Document(uploaded_file)
+        #doc = Document(uploaded_file)
         full_text = "\n".join([p.text for p in doc.paragraphs])
         return full_text
     return None
