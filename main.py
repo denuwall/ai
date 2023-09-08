@@ -57,7 +57,7 @@ def main():
 
         # Загрузка текста
         st.subheader("Загрузите текст:")
-        text = st.text_area("Введите текст сюда", value=st.session_state.text)
+        text = st.text_area("Введите текст сюда", value=st.session_state.text, disabled=True)
         uploaded_text = upload_file()
         if uploaded_text is not None:
             text = uploaded_text
