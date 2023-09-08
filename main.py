@@ -1,16 +1,19 @@
 import streamlit as st
-#from docx import Document
+from docx import Document
 
 # Функция для анализа текста (заглушка)
 def analyze_text_with_nn(text):
-    return "Это результат анализа."
+    # Пример анализа: категория и выделенные элементы
+    category = "Политика"
+    highlighted_text = "<span style='background-color: #FFFF00'>Президент</span> подписал указ о новых налогах."
+    return category, highlighted_text
 
 # Функция для загрузки файла Word
 def upload_file():
     uploaded_file = st.file_uploader("Загрузите файл Word (.docx)", type=["docx"])
     if uploaded_file is not None:
-        #doc = Document(uploaded_file)
-        #full_text = "\n".join([p.text for p in doc.paragraphs])
+        doc = Document(uploaded_file)
+        full_text = "\n".join([p.text for p in doc.paragraphs])
         return full_text
     return None
 
@@ -51,9 +54,13 @@ def main():
         # Кнопка анализа текста
         if st.button("Анализировать"):
             if text:
-                analysis_result = analyze_text_with_nn(text)
-                st.subheader("Результат анализа:")
-                st.write(analysis_result)
+                category, highlighted_text = analyze_text_with_nn(text)
+
+                # Отображение результата в модальном окне
+                with st.modal():
+                    st.header("Результат анализа:")
+                    st.markdown(f"**Категория:** {category}")
+                    st.markdown(f"**Выделенные элементы:** {highlighted_text}", unsafe_allow_html=True)
             else:
                 st.warning("Загрузите текст для анализа")
 
