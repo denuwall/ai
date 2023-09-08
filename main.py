@@ -55,7 +55,7 @@ def main():
         # Кнопка анализа текста
         if st.button("Анализировать"):
             if text:
-                category, highlighted_text = analyze_text_with_nn(text)
+                category1, categoryru, highlighted_text = analyze_text_with_nn(text)
 
                 # Отображение результата
                 st.subheader("Результат анализа:")
