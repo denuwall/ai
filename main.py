@@ -4,8 +4,8 @@ import streamlit as st
 # Функция для анализа текста (заглушка)
 def analyze_text_with_nn(text):
     # Пример анализа: категория и выделенные элементы
-    category = "Политика"
-    highlighted_text = "<span style='background-color: #FFFF00'>Президент</span> подписал указ о новых налогах."
+    category = "A"
+    highlighted_text = "<span style='background-color: #ff9c9c'>«Эксперт РА»</span> подтвердил кредитный рейтинг ООО «НТЦ Евровент» на уровне."
     return category, highlighted_text
 
 # Функция для загрузки файла Word
