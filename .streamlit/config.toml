@@ -1,0 +1,4 @@
+[server]
+wideMode = true
+[theme]
+base = "dark"
