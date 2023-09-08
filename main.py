@@ -1,6 +1,12 @@
 import streamlit as st
 #from docx import Document
-
+hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 # Функция для анализа текста (заглушка)
 def analyze_text_with_nn(text):
     # Пример анализа: категория и выделенные элементы
