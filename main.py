@@ -33,6 +33,8 @@ def authors_page():
     for author, link in authors:
         st.write(f"**{author}**")
         st.write(link)
+
+
 #Скрытие нижней хуйни
 hide_streamlit_style = """
             <style>
@@ -41,6 +43,8 @@ hide_streamlit_style = """
             </style>
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+
+
 # Главная часть приложения
 def main():
     st.title("Анализатор текстовых пресс-релизов")
