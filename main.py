@@ -22,6 +22,10 @@ def upload_file():
 def main():
     st.title("Анализатор текстовых пресс-релизов")
 
+    # Инициализация внутреннего состояния
+    if "text" not in st.session_state:
+        st.session_state.text = "«Эксперт РА» подтвердил кредитный рейтинг «ООО «НТЦ Евровент»» на уровне."
+
     # Стилизация блочного меню
     menu_style = """
         div.sidebar-element {
@@ -47,8 +51,7 @@ def main():
 
         # Загрузка текста
         st.subheader("Загрузите текст:")
-        default_text = "«Эксперт РА» подтвердил кредитный рейтинг «ООО «НТЦ Евровент»» на уровне."
-        text = st.text_area("Введите текст сюда", value=default_text)
+        text = st.text_area("Введите текст сюда", value=st.session_state.text)
         uploaded_text = upload_file()
         if uploaded_text is not None:
             text = uploaded_text
@@ -56,6 +59,8 @@ def main():
         # Кнопка анализа текста
         if st.button("Анализировать"):
             if text:
+                st.session_state.text = text  # Обновляем значение внутреннего состояния
+
                 category1, categoryru, highlighted_text = analyze_text_with_nn(text)
 
                 # Отображение результата
