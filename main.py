@@ -26,7 +26,7 @@ def authors_page():
         ("Зеленцов Александр", "https://vk.com/id445360550"),
         ("Щеткин Денис", "https://vk.com/b334d094680620356a6c0b480584e9a3"),
         ("Тыркалов Никита", "https://vk.com/moresleeep"),
-        ("Безднин Алексей", "https://vk.com/id322630792")
+        ("Безднин Алексей", "https://vk.com/id322630792"),
         ("Никита Юрьев", "https://vk.com/serfetto")
     ]
     
