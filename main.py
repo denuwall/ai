@@ -23,11 +23,11 @@ def authors_page():
     st.title("Авторы")
     
     authors = [
-        ("Зеленцов Александр", "https://vk.com/id445360550"),
-        ("Щеткин Денис", "https://vk.com/b334d094680620356a6c0b480584e9a3"),
-        ("Тыркалов Никита", "https://vk.com/moresleeep"),
-        ("Безднин Алексей", "https://vk.com/id322630792"),
-        ("Никита Юрьев", "https://vk.com/serfetto")
+        ("Зеленцов Александр", "tg: @Ktotoktoya"),
+        ("Щеткин Денис", "tg: @saint_onion"),
+        ("Тыркалов Никита", "tg: @DIOkk"),
+        ("Безднин Алексей", "tg: @Bezdnin"),
+        ("Никита Юрьев", "tg: @Serfett0")
     ]
     
     for author, link in authors:
