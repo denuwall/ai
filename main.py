@@ -4,9 +4,10 @@ import streamlit as st
 # Функция для анализа текста (заглушка)
 def analyze_text_with_nn(text):
     # Пример анализа: категория и выделенные элементы
-    category = "A"
-    highlighted_text = "<span style='background-color: #ff9c9c'>«Эксперт РА»</span> подтвердил кредитный рейтинг ООО «НТЦ Евровент» на уровне."
-    return category, highlighted_text
+    category1 = "BB"
+    categoryru = "BB-"
+    highlighted_text = "«Эксперт РА» подтвердил кредитный рейтинг <span style='background-color: #ff9c9c'>«ООО «НТЦ Евровент»»</span> на уровне."
+    return category1, categoryru, highlighted_text
 
 # Функция для загрузки файла Word
 def upload_file():
@@ -58,7 +59,8 @@ def main():
 
                 # Отображение результата
                 st.subheader("Результат анализа:")
-                st.markdown(f"**Категория:** {category}")
+                st.markdown(f"**Категория:** {category1}")
+                st.markdown(f"**Категория_ru:** {categoryru}")
                 st.markdown(f"**Выделенные элементы:** {highlighted_text}", unsafe_allow_html=True)
             else:
                 st.warning("Загрузите текст для анализа")
