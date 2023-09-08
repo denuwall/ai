@@ -1,13 +1,6 @@
 import streamlit as st
 #from docx import Document
-hide_streamlit_style = """
-            <style>
-            
-            footer {visibility: hidden;}
-            </style>
-            """
-            #MainMenu {visibility: hidden;}
-st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+
 # Функция для анализа текста (заглушка)
 def analyze_text_with_nn(text):
     # Пример анализа: категория и выделенные элементы
@@ -24,6 +17,21 @@ def upload_file():
         full_text = "\n".join([p.text for p in doc.paragraphs])
         return full_text
     return None
+
+# Функция для страницы "Авторы"
+def authors_page():
+    st.title("Авторы")
+    
+    authors = [
+        ("Зеленцов Александр", "Ссылка на профиль"),
+        ("Щеткин Денис", "Ссылка на профиль"),
+        ("Тыркалов Никита", "Ссылка на профиль"),
+        ("Безднин Алексей", "Ссылка на профиль")
+    ]
+    
+    for author, link in authors:
+        st.write(f"**{author}**")
+        st.write(link)
 
 # Главная часть приложения
 def main():
@@ -50,6 +58,8 @@ def main():
         st.session_state.menu_selection = "Анализатор"
     if st.sidebar.button("FAQ", key="faq"):
         st.session_state.menu_selection = "FAQ"
+    if st.sidebar.button("Авторы", key="authors"):  # Добавляем кнопку "Авторы"
+        st.session_state.menu_selection = "Авторы"
 
     menu_selection = st.session_state.get("menu_selection", "Анализатор")
 
@@ -58,7 +68,8 @@ def main():
 
         # Загрузка текста
         st.subheader("Загрузите текст:")
-        text = st.text_area("Введите текст сюда", value=st.session_state.text, disabled=True)
+        default_text = "«Эксперт РА» подтвердил кредитный рейтинг «ООО «НТЦ Евровент»» на уровне."
+        text = st.text_area("Введите текст сюда", value=st.session_state.text)
         uploaded_text = upload_file()
         if uploaded_text is not None:
             text = uploaded_text
@@ -84,6 +95,9 @@ def main():
         st.markdown("   Анализатор позволяет провести глубокий анализ текстовых пресс-релизов.")
         st.markdown("2. **Как загрузить текст для анализа?**")
         st.markdown("   Вы можете ввести текст в поле ввода или загрузить файл Word с помощью кнопки 'Загрузить файл'.")
+
+    elif menu_selection == "Авторы":  # Добавляем обработку нового пункта "Авторы"
+        authors_page()
 
 if __name__ == "__main__":
     main()
