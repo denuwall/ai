@@ -37,7 +37,7 @@ def authors_page():
 #Скрытие нижней хуйни
 hide_streamlit_style = """
             <style>
-            #MainMenu {visibility: hidden;}
+            #MainMenu {visibility: ;}
             footer {visibility: hidden;}
             </style>
             """
