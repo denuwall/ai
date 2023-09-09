@@ -80,7 +80,7 @@ def main():
         # Загрузка текста
         st.subheader("Загрузите текст:")
         default_text = "«Эксперт РА» подтвердил кредитный рейтинг «ООО «НТЦ Евровент»» на уровне."
-        text = st.text_area("Введите текст сюда", value=st.session_state.text, disabled=True)
+        text = st.text_area("Введите текст сюда", value=st.session_state.text)
         uploaded_text = upload_file()
         if uploaded_text is not None:
             text = uploaded_text
