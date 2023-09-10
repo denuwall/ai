@@ -48,6 +48,8 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 def main():
     st.title("Анализатор текстовых пресс-релизов")
 
+    st.markdown("---")
+
     # Инициализация внутреннего состояния
     if "text" not in st.session_state:
         st.session_state.text = "«Эксперт РА» подтвердил кредитный рейтинг «ООО «НТЦ Евровент»» на уровне."
