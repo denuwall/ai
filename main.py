@@ -2,11 +2,15 @@ import streamlit as st
 #from docx import Document
 
 # Функция для анализа текста (заглушка)
-def analyze_text_with_nn(text):
-    category1 = "BB"
-    categoryru = "BB-"
-    highlighted_text = "«Эксперт РА» подтвердил кредитный рейтинг <span style='background-color: #ff9c9c'>«ООО «НТЦ Евровент»»</span> на уровне."
-    return category1, categoryru, highlighted_text
+#def analyze_text_with_nn(text):
+#    category1 = "BB"
+#    categoryru = "BB-"
+#    highlighted_text = "«Эксперт РА» подтвердил кредитный рейтинг <span style='background-color: #ff9c9c'>«ООО «НТЦ Евровент»»</span> на уровне."
+#    return category1, categoryru, highlighted_text
+
+def predict(features):
+    categories = neuronka_ebanaya(features)
+    return categories
 
 # Функция для загрузки файла Word
 def upload_file():
@@ -92,12 +96,12 @@ def main():
             if text:
                 st.session_state.text = text  # Обновляем значение внутреннего состояния
 
-                category1, categoryru, highlighted_text = analyze_text_with_nn(text)
+                categories = predict(text)  # Используем нейронку
 
                 # Отображение результата
                 st.subheader("Результат анализа:")
-                st.markdown(f"**Категория:** {category1}")
-                st.markdown(f"**Категория_ru:** {categoryru}")
+                st.markdown(f"**Категория:** {categories[0]}")
+                st.markdown(f"**Категория_ru:** {categories[1]}")
                 st.markdown(f"**Выделенные элементы:** {highlighted_text}", unsafe_allow_html=True)
             else:
                 st.warning("Загрузите текст для анализа")
