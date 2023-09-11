@@ -75,8 +75,8 @@ def main():
         st.session_state.menu_selection = "Анализатор"
     if st.sidebar.button("FAQ", key="faq"):
         st.session_state.menu_selection = "FAQ"
-    if st.sidebar.button("Авторы", key="authors"):
-        st.session_state.menu_selection = "Авторы"
+    #if st.sidebar.button("Авторы", key="authors"):
+        #st.session_state.menu_selection = "Авторы"
 
     menu_selection = st.session_state.get("menu_selection", "Анализатор")
 
